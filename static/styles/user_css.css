@@ -1,0 +1,327 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  
+  background-color: #a1c8ba;
+  
+  font-size: 14px;
+}
+
+.v32_56 {
+  width: 100%;
+  height: 100%;
+  background: rgba(161,200,186,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.v32_62 {
+  width: 435px;
+  color: rgba(62,77,62,1);
+  position: absolute;
+  top: 307px;
+  left: 675px;
+  font-family: 'Times New Roman', Times bold, serif;
+  font-weight: Bold;
+  font-size: 52px;
+  opacity: 1;
+  text-align: center;
+}
+
+.v32_64 {
+  width: 683px;
+  height: 75px;
+  background: rgba(47,78,67,1);
+  opacity: 1;
+  position: absolute;
+  top: 720px;
+  left: 523px;
+  border-top-left-radius: 79px;
+  border-top-right-radius: 79px;
+  border-bottom-left-radius: 79px;
+  border-bottom-right-radius: 79px;
+  overflow: hidden;
+}
+
+
+
+.v32_69 {
+  width: 240px;
+  color: rgba(0,0,0,0.8999999761581421);
+  position: absolute;
+  top: 680px;
+  left: 584px;
+  font-family: Hammersmith One;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v32_99 {
+  width: 500px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 550px;
+  left: 590px;
+  font-family: Jacques Francois;
+  font-weight: Regular;
+  font-size: 30px;
+  opacity: 1;
+  text-align: center;
+}
+.v32_100 {
+  width: 500px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 428px;
+  left: 590px;
+  font-family: Jacques Francois;
+  font-weight: Regular;
+  font-size: 40px;
+  opacity: 1;
+  text-align: center;
+}
+.v32_101 {
+  width: 475px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 730px;
+  left: 700px;
+  font-family: Jacques Francois;
+  font-weight: Regular;
+  font-size: 40px;
+  opacity: 1;
+  text-align: center;
+}
+.v32_70 {
+  width: 224px;
+  color: rgba(0,0,0,0.8999999761581421);
+  position: absolute;
+  top: 8px;
+  left: 571px;
+  font-family: Hammersmith One;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v32_71 {
+  width: 100px;
+  height: 100px;
+  background: url("../images/v32_71.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 843px;
+  left: 585px;
+  overflow: hidden;
+}
+.v32_72 {
+  width: 645px;
+  color: rgba(62,77,62,1);
+  position: absolute;
+  top: 240px;
+  left: 45px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: Bold Italic;
+  font-size: 55px;
+  opacity: 1;
+  text-align: center;
+}
+.v32_73 {
+  width: 100px;
+  color: rgba(62,77,62,1);
+  position: absolute;
+  top: 240px;
+  left: 1574px;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
+  font-size: 36px;
+  opacity: 1;
+  text-align: center;
+}
+.v33_75 {
+  width: 425px;
+  color: rgba(0,0,0,0.8999999761581421);
+  position: absolute;
+  top: 846px;
+  left: 661px;
+  font-family: Hammersmith One;
+  font-weight: Regular;
+  font-size: 33px;
+  opacity: 1;
+  text-align: center;
+}
+.v68_16 {
+  width: 100%;
+  height: 142px;
+  background: rgba(248,248,248,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v68_26 {
+  width: 300px;
+  color: rgba(62,77,62,1);
+  position: absolute;
+  top: 60px;
+  left: 1471px;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
+  font-size: 28px;
+  opacity: 1;
+  text-align: center;
+}
+.v68_23 {
+  width: 300px;
+  color: rgba(62,77,62,1);
+  position: absolute;
+  top: 60px;
+  left: 1170px;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
+  font-size: 28px;
+  opacity: 1;
+  text-align: center;
+}
+.v68_20 {
+  width: 300px;
+  color: rgba(62,77,62,1);
+  position: absolute;
+  top: 61px;
+  left: 879px;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
+  font-size: 28px;
+  opacity: 1;
+  text-align: center;
+}
+.v68_18 {
+  width: 141px;
+  height: 125px;
+  background: url("../images/v68_18.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  overflow: hidden;
+}
+.v69_19 {
+  width: 90px;
+  height: 90px;
+  background: url("../images/v69_17.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 912px;
+  left: 910px;
+  overflow: hidden;
+}
+.v69_20 {
+  width: 90px;
+  height: 90px;
+  background: url("../images/v69_15.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 912px;
+  left: 790px;
+  overflow: hidden;
+}
+a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 5px 20px;
+  border: 4px solid rgb(255, 255, 255);
+  border-radius: 30px;
+  font-size: 40px;
+}
+
+a:hover{
+  background-color: rgb(82, 121, 91);
+  color: #000;
+}
+
+input{
+  width: 700px;
+  height: 95px;
+  border-color: #ffff;
+  border: #ff0f;
+  border-radius: 30px;
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 32px;
+}
+
+button{
+  background-color:rgb(36, 65, 36); /* Green */
+  width: 500px;
+  height: 90px;
+  left: 800px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 50px;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 5px 20px;
+  border: 4px solid rgb(255, 255, 255);
+  border-radius: 30px;
+  font-size: 40px;
+}
+
+a:hover{
+  background-color: rgb(82, 121, 91);
+  color: #000;
+}
+
+input{
+  width: 700px;
+  height: 95px;
+  border-color: #ffff;
+  border: #ff0f;
+  border-radius: 30px;
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 32px;
+}
+
+button{
+  background-color:rgb(36, 65, 36); /* Green */
+  width: 500px;
+  height: 90px;
+  left: 800px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 50px;
+}
+
+button:hover{
+  background-color: rgb(82, 121, 91);
+  color: #000;
+}

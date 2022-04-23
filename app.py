@@ -26,5 +26,10 @@ def user_register():
     return render_template("Registration_screen.html");
 
 
+@app.route('/About_us')
+def aboutuspage():
+    return render_template("about_us.html");
+
+
 if __name__ == '__main__':
     app.run()

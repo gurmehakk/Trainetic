@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Hammersmith+One&display=swap" rel="stylesheet" />
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/browse_trains.css') }}">
+  <title>Document</title>
+</head>
+<body>
+  <div class="v68_96">
+    <div class="v68_97"></div>
+    <div class="v68_98"></div>
+    <div class="v68_99"></div>
+    <span class="v68_100">BROWSE TRAINS</span>
+    <span class="v68_101"><button onclick="history.back()">BACK</button></span>
+    <div class="v68_102"></div>
+    <div class="v68_103"></div>
+    <div class="v68_104"></div>
+    <div class="v68_105"></div>
+    <div class="v68_108"></div>
+    <span class="v68_109">DEPARTURE DESTINATION</span>
+    <span class="v68_110">ARRIVAL DESTINATION</span>
+    <span class="v68_111">DATE OF TRAVEL</span>
+    <span class="v68_114">COACH TYPE</span>
+    <!-- <span class="v68_115">CHECK AVAILABLE TRAINS</span> -->
+    <div class="v68_117"></div>
+    <span class="v93_4"><a href="#">About Us</a></span>
+    <span class="v93_2"><a href="#">Contact us</a></span>
+    <span class="v93_3"><a href="#">Admin Login</a></span>
+    <form action="index.html" method="GET">
+      <div class="v68_102">
+          <input type="text" name="destination" id="destination" placeholder="Destination">
+      </div>
+      <div class="v68_103">
+          <input type="text" name="arrival" id="arrival" placeholder="Arrival">
+      </div>
+      <div class="v68_104">
+          <input type="text" name="coach" id="coach" placeholder="Coach">
+      </div>
+      <div class="v68_105">
+          <input type="date" name="date" id="date" placeholder="Date">
+      </div>
+      <div class="v68_108">
+          <button type="submit">CHECK</button>
+      </div>
+  </form>
+  </div>
+</body>
+</html>

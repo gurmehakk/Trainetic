@@ -33,7 +33,12 @@ def aboutuspage():
 
 @app.route('/Contact_us')
 def contact_us():
-    return render_template("contact_us.html")
+    return render_template("contact_us.html");
+
+
+@app.route('/Browse_trains')
+def browse_train():
+    return render_template("browse_trains.html");
 
 
 if __name__ == '__main__':

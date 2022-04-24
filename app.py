@@ -73,7 +73,19 @@ def user_info():
 
 @app.route('/registered', methods= ["POST", "GET"])
 def regis_ok():
-    pass
+    if (request.method == "GET"):
+        return render_template("Registration_screen.html");
+    else:
+        r_adhaar = request.form["adhaar"]
+        r_password = request.form["password"]
+        r_firstname = request.form["first_name"]
+        r_lastname = request.form["last_name"]
+        r_dob = request.form["DOB"]
+        r_phone = request.form["phone_no"]
+        r_username = request.form["username"]
+        r_email = request.form[["email"]]
+        f"alter table"
+
 
 if __name__ == '__main__':
     app.run()

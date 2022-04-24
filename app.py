@@ -4,10 +4,14 @@ import mysql.connector
 app = Flask(__name__)
 
 mydb = mysql.connector.connect(host="localhost", user="root", passwd="AbCd@123", database="railway_system")
+mycursor = mydb.cursor()
 
+global current_user;
+current_user = 0;
 
 @app.route('/')
 def hello_world():  # put application's code here
+    current_user = 0;
     return render_template("index.html");
 
 
@@ -18,6 +22,7 @@ def admin_log():
 
 @app.route('/user_login')
 def user_log():
+    current_user = 0;
     return render_template("user_login.html");
 
 
@@ -41,10 +46,32 @@ def browse_train():
     return render_template("browse_trains.html");
 
 
-@app.route('/User_info')
+@app.route('/user_info', methods= ["POST", "GET"])
 def user_info():
-    return render_template("user_info.html")
+    if (request.method == "GET") or current_user==0:
+        return render_template("user_login.html");
 
+    else:
+        print(request.form)
+        u_adhaar = request.form["adhaar"]
+        u_password = request.form["password"]
+
+        chk_adh_str = f"SELECT * FROM users WHERE Adhaar_no='{u_adhaar}';"
+        mycursor.execute(chk_adh_str);
+        now_user_data_all = mycursor.fetchall();
+        if (len(now_user_data_all)==0):
+            return render_template("user_login.html");
+
+        now_user_data = now_user_data_all[0];
+
+        if now_user_data[7]!=u_password:
+            return render_template("user_login.html");
+
+        current_user = u_adhaar;
+
+        return render_template("user_info.html")
+
+# @app.route('/user_info')
 
 if __name__ == '__main__':
     app.run()

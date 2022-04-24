@@ -69,7 +69,7 @@ def user_info():
 
         current_user = u_adhaar;
 
-        return render_template("user_info.html")
+        return render_template("user_info.html", user_data = now_user_data);
 
 # @app.route('/user_info')
 

@@ -256,7 +256,7 @@ body {
 .v32_20 {
   width: 680px;
   height: 70px;
-  background: rgba(160, 7, 7);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 500px;
@@ -266,11 +266,17 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  text-align: center;
+  text-align-all: center;
+  font-size: 42px;
+  color: black;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
 }
 .v76_6 {
   width: 680px;
   height: 70px;
-  background: rgba(160, 7, 7);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 600px;
@@ -280,11 +286,17 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  text-align: center;
+  text-align-all: center;
+  font-size: 42px;
+  color: black;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
 }
 .v76_4 {
   width: 680px;
   height: 70px;
-  background: rgba(160, 7, 7);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 700px;
@@ -294,11 +306,17 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  text-align: center;
+  text-align-all: center;
+  font-size: 42px;
+  color: black;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
 }
 .v32_26 {
   width: 680px;
   height: 70px;
-  background: rgba(160, 7, 7);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 800px;
@@ -308,11 +326,17 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  text-align: center;
+  text-align-all: center;
+  font-size: 42px;
+  color: black;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
 }
 .v32_21 {
   width: 680px;
   height: 70px;
-  background: rgba(160, 7, 7);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 900px;
@@ -322,6 +346,12 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  text-align: center;
+  text-align-all: center;
+  font-size: 42px;
+  color: black;
+  font-family: Inter;
+  font-weight: Semi Bold Italic;
 }
 .v32_25 {
   width: 680px;

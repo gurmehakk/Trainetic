@@ -48,7 +48,7 @@ def browse_train():
 
 @app.route('/user_info', methods= ["POST", "GET"])
 def user_info():
-    if (request.method == "GET") or current_user==0:
+    if (request.method == "GET"):
         return render_template("user_login.html");
 
     else:

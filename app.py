@@ -71,7 +71,9 @@ def user_info():
 
         return render_template("user_info.html", user_data = now_user_data);
 
-# @app.route('/user_info')
+@app.route('/registered', methods= ["POST", "GET"])
+def regis_ok():
+    pass
 
 if __name__ == '__main__':
     app.run()

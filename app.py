@@ -41,5 +41,10 @@ def browse_train():
     return render_template("browse_trains.html");
 
 
+@app.route('/User_info')
+def user_info():
+    return render_template("user_info.html")
+
+
 if __name__ == '__main__':
     app.run()

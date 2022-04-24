@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One&display=swap" rel="stylesheet" />
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/user_info.css') }}">
+    <title>Document</title>
+</head>
+    <body>
+    <div class="v94_3">
+        <div class="v94_28">
+            <div class="v94_4">
+                <div class="v94_5"></div>
+                <div class="v94_17"></div>
+                <div class="v94_19"></div>
+                <div class="v94_20"></div>
+                <!--<span class="v94_21">Admin Login</span>
+                <span class="v94_22">Contact us</span>
+                <span class="v94_23">About Us</span>-->
+                <span class="v94_26">
+NAME: 
+<br>
+Date of Birth: 
+<br>
+ADHAAR NUMBER: 
+<br>
+Username:
+<br>
+Password:
+<br>
+Phone number:
+<br>
+E-mail:</span>
+<form action="index.html" method="post">
+    <div class="v31_10">
+        <!--<span class="v8_15">From Station</span>-->
+        <input type="text" name="name" id="first_name" placeholder="">
+    </div>
+    <div class="v32_20">
+        <!--<span class="v8_15">From Station</span>-->
+        <input type="date" name="DOB" id="DOB" placeholder="">
+    </div>
+    <div class="v76_6">
+        <!--<span class="v8_15">From Station</span>-->
+        <input type="number" name="adhaar" id="adhaar" placeholder="10 digit adhaar number">
+    </div>
+    <div class="v76_4">
+        <!--<span class="v8_15">From Station</span>-->
+        <input type="text" name="username" id="username" placeholder="Username">
+    </div>
+    <div class="v32_26">
+        <!--<span class="v8_15">From Station</span>-->
+        <input type="text" name="password" id="password" placeholder="at lease 7 letters">
+    </div>
+    <div class="v32_21">
+        <!--<span class="v8_16">To Station</span>-->
+        <input type="number" name="phone_no" id="phone_no" placeholder="10 didgit Phone Number">
+    </div>
+    <div class="v32_25">
+        <!--<span class="v8_15">From Station</span>-->
+        <input type="email" name="email" id="email" placeholder="xyz@abc.com">
+    </div>
+    <div class="v31_11">
+        <button type="submit">EDIT</button>
+    </div>
+</form>
+<div class="v94_29">
+    <button type="submit">PRESS</button>
+</div>
+<div class="v941_29">
+    <button type="submit">Browse</button>
+</div>
+<div class="v942_291">
+    <button type="submit">Logout</button>
+</div>
+<span class="v94_22"><a href="/About_us">About Us</a></span>
+<span class="v94_23"><a href="/Contact_us">Contact us</a></span>
+<span class="v94_27">USER INFORMATION</span>
+<span class="v94_291">TICKET INFORMATION</span>
+<span class="v941_291">BROWSE TRAINS</span>
+<span class="v94_50">EDIT </span>
+</div></div></div></body></html>

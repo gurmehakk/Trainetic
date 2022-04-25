@@ -73,7 +73,7 @@ def user_info():
 
 @app.route('/registered', methods= ["POST", "GET"])
 def regis_ok():
-    if (request.method == "GET"):
+    if (request.method=="GET"):
         return render_template("Registration_screen.html");
     else:
         r_adhaar = request.form["adhaar"]
@@ -84,9 +84,16 @@ def regis_ok():
         r_phone = request.form["phone_no"]
         r_username = request.form["username"]
         r_email = request.form["email"]
-        f"alter table"
-        cursor.execute("INSERT INTO users(Adhaar_no,Username,e_mail ,Mobile,DOB,First_name,Last_name,password) VALUES ", (
-        r_adhaar,r_username,r_email,r_phone,r_dob,r_firstname,r_lastname,r_password))
+        # exc_str = f"INSERT INTO users(Adhaar_no,Username,e_mail,Mobile,DOB,First_name,Last_name,password) VALUES ({r_adhaar},'{r_username}','{r_email}',{r_phone},'{r_dob}','{r_firstname}','{r_lastname}','{r_password}');"
+        exc_str = f"INSERT INTO users(Adhaar_no,Username,e_mail,Mobile,DOB,First_name,Last_name,passwords) VALUES({str(r_adhaar)}, '{r_username}', '{r_email}', {str(r_phone)}, '{r_dob}', '{r_firstname}', '{r_lastname}', '{r_password}');"
+        print(exc_str);
+        mycursor.execute(exc_str);
+        # useless = mycursor.fetchall();
+        mydb.commit();
+
+        # print("INSERT INTO users(Adhaar_no,Username,e_mail,Mobile,DOB,First_name,Last_name,password) VALUES({}, '{}', '{}', {}, '{}', '{}', '{}', '{}');".format(r_adhaar,r_username,r_email,r_phone,r_dob,r_firstname,r_lastname,r_password))
+
+        return render_template("registered.html");
 
 
 if __name__ == '__main__':

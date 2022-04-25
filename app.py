@@ -85,6 +85,8 @@ def regis_ok():
         r_username = request.form["username"]
         r_email = request.form["email"]
         f"alter table"
+        cursor.execute("INSERT INTO users(Adhaar_no,Username,e_mail ,Mobile,DOB,First_name,Last_name,password) VALUES ", (
+        r_adhaar,r_username,r_email,r_phone,r_dob,r_firstname,r_lastname,r_password))
 
 
 if __name__ == '__main__':

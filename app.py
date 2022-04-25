@@ -83,7 +83,7 @@ def regis_ok():
         r_dob = request.form["DOB"]
         r_phone = request.form["phone_no"]
         r_username = request.form["username"]
-        r_email = request.form[["email"]]
+        r_email = request.form["email"]
         f"alter table"
 
 

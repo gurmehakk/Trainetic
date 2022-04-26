@@ -149,8 +149,9 @@ def available_trains():
     if (request.method == "GET"):
         return render_template("index.html");
     else:
+        print(request.form)
         from_station = request.form["from_station"]
-        to_station = request.form["to_ststion"]
+        to_station = request.form["to_station"]
         print(from_station, to_station)
         return render_template("available_trains.html")
 

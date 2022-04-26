@@ -87,7 +87,9 @@ def regis_ok():
         # exc_str = f"INSERT INTO users(Adhaar_no,Username,e_mail,Mobile,DOB,First_name,Last_name,password) VALUES ({r_adhaar},'{r_username}','{r_email}',{r_phone},'{r_dob}','{r_firstname}','{r_lastname}','{r_password}');"
         # if len(r_phone)==0: render_template("Registration_screen.html");
         # if r_dob is None: render_template("Registration_screen.html");
-
+        chk_adh_str = f"SELECT * FROM users WHERE Adhaar_no='{r_adhaar}';"
+        if len(chk_adh_str)>0:
+            return render_template("user_login.html");
         exc_str = f"INSERT INTO users(Adhaar_no,Username,e_mail,Mobile,DOB,First_name,Last_name,passwords) VALUES({str(r_adhaar)}, '{r_username}', '{r_email}', {str(r_phone)}, '{r_dob}', '{r_firstname}', '{r_lastname}', '{r_password}');"
         print(exc_str);
         mycursor.execute(exc_str);

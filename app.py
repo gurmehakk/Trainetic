@@ -144,5 +144,13 @@ def congo_station():
         return render_template("station_added.html");
 
 
+@app.route('/Available_Trains', methods = ["POST", "GET"])
+def available_trains():
+    if (request.method == "GET"):
+        return render_template("index.html");
+    else:
+        return render_template("available_trains.html")
+
+
 if __name__ == '__main__':
     app.run()

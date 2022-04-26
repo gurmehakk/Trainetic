@@ -111,9 +111,30 @@ def regis_ok():
 
         return render_template("registered.html");
 
-@app.route('/station_added')
+@app.route('/station_added', methods=["POST", "GET"])
 def congo_station():
-    return render_template("station_added.html");
+    if (request.method == "GET"):
+        return render_template("admin_station.html");
+    else:
+        station_name = request.form["station_name"]
+        terminal_count = int(request.form["terminal_count"])
+        if (terminal_count<1): return render_template("admin_station.html");
+
+        cnt_allsttn = f"SELECT MAX(Station_id) FROM station;"
+        mycursor.execute(cnt_allsttn)
+        new_station_id = int((mycursor.fetchall())[0][0]) + 1;
+
+        adding_new_station = f"INSERT INTO station(Station_id, Station_name, No_of_terminals) VALUES({str(new_station_id)}, '{station_name}', {str(terminal_count)});"
+        mycursor.execute(adding_new_station)
+        mydb.commit();
+
+        for ti in range(1, terminal_count+1):
+            adding_new_terminal = f"INSERT INTO terminal(Terminal_id, Station_id) VALUES ({str((new_station_id)*10 + ti)}, {str(new_station_id)});"
+            mycursor.execute(adding_new_terminal)
+            mydb.commit();
+
+
+        return render_template("station_added.html");
 
 
 if __name__ == '__main__':

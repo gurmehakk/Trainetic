@@ -38,6 +38,10 @@ def admin_station():
 def admin_seats():
     return render_template("admin_seats.html");
 
+@app.route('/admin_afterlogin')
+def admin_afterlogin():
+    return render_template("admin_afterlogin.html");
+
 @app.route('/About_us')
 def aboutuspage():
     return render_template("about_us.html");

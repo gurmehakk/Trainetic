@@ -107,6 +107,10 @@ def regis_ok():
 
         return render_template("registered.html");
 
+@app.route('/station_added')
+def congo_station():
+    return render_template("station_added.html");
+
 
 if __name__ == '__main__':
     app.run()

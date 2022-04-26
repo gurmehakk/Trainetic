@@ -146,10 +146,15 @@ def congo_station():
 
 @app.route('/Available_Trains', methods = ["POST", "GET"])
 def available_trains():
-    if (request.method == "GET"):
-        return render_template("index.html");
-    else:
-        return render_template("available_trains.html")
+    # if (request.method == "GET"):
+    #     return render_template("index.html");
+    # else:
+    #     # from_station = request.form["from_station"]
+    #     # to_station = request.form["to_ststion"]
+    #     # print(from_station, to_station)
+    #     return render_template("available_trains.html")
+
+    return render_template("available_trains.html")
 
 
 if __name__ == '__main__':

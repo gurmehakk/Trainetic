@@ -30,6 +30,13 @@ def user_log():
 def user_register():
     return render_template("Registration_screen.html");
 
+@app.route('/admin_station')
+def admin_station():
+    return render_template("admin_station.html");
+
+@app.route('/admin_seats')
+def admin_seats():
+    return render_template("admin_seats.html");
 
 @app.route('/About_us')
 def aboutuspage():

@@ -2,7 +2,7 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-        <link href="./css/main.css" rel="stylesheet" />
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/admin_afterlogin.css') }}">
         <title>Document</title>
     </head>
     <body>
@@ -13,12 +13,12 @@
         <div class="v144_6"></div>
         <div class="v144_7"></div>
         <div class="v144_8"></div>
-        <span class="v144_11"><a href="#">About Us</a></span>
-<span class="v144_10"><a href="#">Contact Us</a></span>
-<span class="v144_20"><b href="#">Log out</b></span>
+        <span class="v144_11"><a href="/About_us">About Us</a></span>
+<span class="v144_10"><a href="/Contact_us">Contact Us</a></span>
+<span class="v144_20"><b href="/">Log out</b></span>
         <span class="v141_2">WELCOME ADMIN </span>
         <span class="v144_19"><a href="#">ADD TRAIN</a></span>
-    <span class="v1200_31"><a href="#">ADD STATION</a></span>
+    <span class="v1200_31"><a href="/admin_station">ADD STATION</a></span>
 </div>
 </div>
 </div>

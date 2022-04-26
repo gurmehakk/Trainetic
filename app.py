@@ -38,9 +38,16 @@ def admin_station():
 def admin_seats():
     return render_template("admin_seats.html");
 
-@app.route('/admin_afterlogin')
+@app.route('/admin_afterlogin', methods = ["POST", "GET"])
 def admin_afterlogin():
-    return render_template("admin_afterlogin.html");
+    if (request.method == "GET"):
+        return render_template("admin_log.html");
+    else:
+        admin_user = str(request.form["username"])
+        u_password = str(request.form["password"])
+        if (admin_user=="__octopus__" and u_password=="monkey_man"):
+            return render_template("admin_afterlogin.html")
+        return render_template("admin_log.html");
 
 @app.route('/About_us')
 def aboutuspage():

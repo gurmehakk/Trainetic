@@ -151,7 +151,11 @@ def available_trains():
     else:
         # print(request.form)
         from_station = request.form["from_station"]
+        from_station = from_station.title()
+        from_station = from_station.replace(" ", "_")
         to_station = request.form["to_station"]
+        to_station = to_station.title()
+        to_station = to_station.replace(" ", "_")
         print(from_station, to_station)
         chk_start = f"SELECT * FROM station WHERE Station_name='{from_station}';"
         mycursor.execute(chk_start);
@@ -195,9 +199,23 @@ def available_trains():
             final_route_list.append(all_route_list[ir+1])
             ir+=2
         # print(final_route_list)
+        train_name_dict = {}
+        for i in final_route_list:
+            # print(i[7])
+            trnfind = f"SELECT Train_name FROM train WHERE Train_id={i[7]};"
+            mycursor.execute(trnfind)
+            train_ka_naam = (mycursor.fetchall())[0][0]
+            train_name_dict[i[7]] = train_ka_naam
+
+        # Another checkpoint working fine
         for i in final_route_list:
             print(i[7])
-        return render_template("available_trains.html", final_route_list = final_route_list)
+            print(train_name_dict[i[7]])
+
+        # if len(final_route_list)<1:
+        #     return render_template()
+
+        return render_template("available_trains.html", final_route_list = final_route_list, train_name_dict = train_name_dict)
 
     # return render_template("available_trains.html")
 

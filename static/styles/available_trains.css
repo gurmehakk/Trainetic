@@ -194,39 +194,29 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
+  border: 2px solid #dddddd;
+  text-align: center;
   padding: 8px;
+  font-size: 25px;
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.fortable{
+.fortable {
   position: absolute;
-  top: 500px;
+  top: 440px;
   left: 100px;
   width: 90%;
-  td {
+}
+td {
   text-align: center;
-   }
-   body
-{
-    counter-reset: Serial;           /* Set the Serial counter to 0 */
 }
 
-table
-{
-    border-collapse: separate;
+th {
+  font-size: 28px;
+  color: #000080;
+  font-family: 'Times New Roman', Times bold, serif;
 }
 
-tr td:first-child:before
-{
-  counter-increment: Serial;      /* Increment the Serial counter */
-  content: "Serial is: " counter(Serial); /* Display the counter */
-}
-
-
-
-}

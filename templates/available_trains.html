@@ -36,12 +36,17 @@
                 <th> Arrival station </th>
                 <th> Arrival time </th>
             </tr>
-            {% for i in range(len(final_route_list)) %}
-        <tr>
-            <td>{{ final_route_list[i][0] }}</td>
-<!--            <td>{{train_name_dict[route[6]}}</td>-->
-        </tr>
-    {% endfor %}
+            {% for i in final_render_list %}
+                <tr>
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                    <td>{{ i[2] }}</td>
+                    <td>{{ i[3] }}</td>
+                    <td>{{ i[4] }}</td>
+                    <td>{{ i[5] }}</td>
+                    <td>{{ i[6] }}</td>
+                </tr>
+            {% endfor %}
         </table>
     </span>
 </body>

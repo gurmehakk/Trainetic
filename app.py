@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request, session
 import mysql.connector
+import datetime
 
 app = Flask(__name__)
 
@@ -8,6 +9,9 @@ mycursor = mydb.cursor()
 
 global current_user;
 current_user = 0;
+
+def date_timesetup(given):
+    return given.strftime("%m/%d/%Y, %H:%M:%S")
 
 @app.route('/')
 def hello_world():  # put application's code here
@@ -208,14 +212,19 @@ def available_trains():
             train_name_dict[i[7]] = train_ka_naam
 
         # Another checkpoint working fine
-        for i in final_route_list:
-            print(i[7])
-            print(train_name_dict[i[7]])
+        # for i in final_route_list:
+        #     print(i[7])
+        #     print(train_name_dict[i[7]])
 
         # if len(final_route_list)<1:
         #     return render_template()
+        final_render_list = []
+        for i in range(0, len(final_route_list)-1, 2):
+            xrender = [(i//2)+1, final_route_list[i][7], train_name_dict[final_route_list[i][7]], from_station, date_timesetup(final_route_list[i][4]), to_station, date_timesetup(final_route_list[i+1][3])]
+            final_render_list.append(xrender)
 
-        return render_template("available_trains.html", final_route_list = final_route_list, train_name_dict = train_name_dict)
+        print(final_render_list)
+        return render_template("available_trains.html", final_render_list=final_render_list)
 
     # return render_template("available_trains.html")
 

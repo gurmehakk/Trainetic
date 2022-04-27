@@ -149,11 +149,55 @@ def available_trains():
     if (request.method == "GET"):
         return render_template("index.html");
     else:
-        print(request.form)
+        # print(request.form)
         from_station = request.form["from_station"]
         to_station = request.form["to_station"]
         print(from_station, to_station)
-        return render_template("available_trains.html")
+        chk_start = f"SELECT * FROM station WHERE Station_name='{from_station}';"
+        mycursor.execute(chk_start);
+        start_station_list = mycursor.fetchall();
+        if len(start_station_list)<1:
+            return render_template("index.html")
+        chk_end = f"SELECT * FROM station WHERE Station_name='{to_station}';"
+        mycursor.execute(chk_end);
+        end_station_list = mycursor.fetchall();
+        if len(end_station_list)<1:
+            return render_template("index.html")
+
+        start_station = start_station_list[0]
+        end_station = end_station_list[0]
+        # cheking printing; and its working
+        # print(start_station)
+        # print(end_station)
+        start_station_id = start_station[0]
+        end_station_id = end_station[0]
+        get_all_route = f"SELECT * FROM route WHERE (Start_station_id='{start_station_id}' OR Start_station_id='{end_station_id}');"
+        mycursor.execute(get_all_route)
+        all_route_list = mycursor.fetchall();
+        # checkpoint 2 success
+        # print(all_route_list);
+        # print(len(all_route_list))
+        all_route_list.sort(key=lambda x:x[0])
+        final_route_list = []
+        ir = 0
+        lnr = len(all_route_list)
+        while(ir<lnr-1):
+            if (all_route_list[ir][5]!=start_station_id):
+                ir+=1
+                continue
+            if (all_route_list[ir+1][5]==start_station_id):
+                ir+=1
+                continue
+            if (all_route_list[ir][7]!=all_route_list[ir+1][7]):
+                ir+=1
+                continue
+            final_route_list.append(all_route_list[ir])
+            final_route_list.append(all_route_list[ir+1])
+            ir+=2
+        # print(final_route_list)
+        for i in final_route_list:
+            print(i[7])
+        return render_template("available_trains.html", final_route_list = final_route_list)
 
     # return render_template("available_trains.html")
 

@@ -228,6 +228,10 @@ def available_trains():
 
     # return render_template("available_trains.html")
 
+@app.route('/All_ticket_list')
+def all_ticket_list():
+    return render_template("All_ticket_list.html")
+
 
 if __name__ == '__main__':
     app.run()

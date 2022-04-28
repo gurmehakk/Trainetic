@@ -30,8 +30,9 @@
                 <th> Departure station </th>
                 <th> Arrival station </th>
                 <th> Train Name </th>
-                <th> open_this </th>
+{#                <th> open_this </th>#}
             </tr>
+
             {% for i in final_render_list %}
                 <tr>
                     <td>{{ i[0] }}</td>
@@ -40,9 +41,23 @@
                     <td>{{ i[3] }}</td>
                     <td>{{ i[4] }}</td>
                     <td>{{ i[5] }}</td>
+{#                    <td>#}
+{#                            <input type="hidden" name="ticket_id_show" value="{{ i[1] }}" id="ticket_id_show" />#}
+{#                            <input type="hidden" name="ticket_id_show" value="{{ i[1] }}" />#}
+{#                        <button type="submit" value="{{ i[1] }}">open</button>#}
+{#                    </td>#}
                 </tr>
             {% endfor %}
+            <tr>
+                <form action="/Booking_details" method="POST">
+                    <td colspan="3"><input type="number" name="ticket_id_show" id="ticket_id_show" placeholder="Enter Ticket ID" required /></td>
+                    <td colspan="3"><button type="submit">SHOW</button></td>
+                </form>
+            </tr>
         </table>
     </span>
+        <span class="fortcktinp">
+
+        </span>
 </body>
 </html>

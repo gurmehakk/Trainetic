@@ -12,6 +12,11 @@ current_user = 0;
 def date_timesetup(given):
     return given.strftime("%m/%d/%Y, %H:%M:%S")
 
+def redirect_url(default='index.html'):
+    return request.args.get('next') or \
+           request.referrer or \
+           url_for(default)
+
 @app.route('/')
 def hello_world():  # put application's code here
     global current_user;
@@ -264,7 +269,24 @@ def all_ticket_list():
 
 @app.route('/Booking_details', methods = ["GET", "POST"])
 def booking_details():
-    return render_template("booking_details.html")
+    global current_user
+    if (request.method == "GET"):
+        return render_template("index.html");
+    else:
+        ticket_id = request.form["ticket_id_show"]
+        # print(ticket_id)
+        get_tck = f"SELECT * FROM passenger WHERE Ticket_id = {ticket_id};"
+        mycursor.execute(get_tck)
+        all_tck = mycursor.fetchall()
+        if len(all_tck)==0:
+            return redirect_url()
+        this_tck = all_tck[0]
+        if this_tck[1]!=current_user:
+            return redirect_url()
+
+
+
+        return render_template("booking_details.html")
 
 
 if __name__ == '__main__':

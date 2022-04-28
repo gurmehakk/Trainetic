@@ -7,7 +7,6 @@ app = Flask(__name__)
 mydb = mysql.connector.connect(host="localhost", user="root", passwd="AbCd@123", database="railway_system")
 mycursor = mydb.cursor()
 
-global current_user;
 current_user = 0;
 
 def date_timesetup(given):
@@ -15,6 +14,7 @@ def date_timesetup(given):
 
 @app.route('/')
 def hello_world():  # put application's code here
+    global current_user;
     current_user = 0;
     return render_template("index.html");
 
@@ -26,6 +26,7 @@ def admin_log():
 
 @app.route('/user_login')
 def user_log():
+    global current_user;
     current_user = 0;
     return render_template("user_login.html");
 
@@ -70,11 +71,12 @@ def browse_train():
 
 @app.route('/user_info', methods= ["POST", "GET"])
 def user_info():
+    global current_user;
     if (request.method == "GET"):
         return render_template("user_login.html");
 
     else:
-        print(request.form)
+        # print(request.form)
         u_adhaar = request.form["adhaar"]
         u_password = request.form["password"]
 
@@ -228,12 +230,39 @@ def available_trains():
 
     # return render_template("available_trains.html")
 
-@app.route('/All_ticket_list')
+@app.route('/All_ticket_list', methods = ["GET", "POST"])
 def all_ticket_list():
-    return render_template("All_ticket_list.html")
+    global current_user;
+    if (request.method == "GET"):
+        return render_template("index.html");
+    else:
+        # if (current_user==0):
+        #     return render_template("index.html")
+        get_tcks_list = f"SELECT * FROM passenger WHERE Adhaar_no={current_user};"
+        mycursor.execute(get_tcks_list);
+        all_tckt = mycursor.fetchall();
+        final_render_list = []
+        for i in range(len(all_tckt)):
+            xrender = [i+1, all_tckt[i][0], date_timesetup(all_tckt[i][2])]
+            frm_st = f"SELECT Station_name FROM station WHERE Station_id={all_tckt[i][5]};"
+            mycursor.execute(frm_st)
+            xrender.append(mycursor.fetchall()[0][0])
+            to_st = f"SELECT Station_name FROM station WHERE Station_id={all_tckt[i][6]};"
+            mycursor.execute(to_st)
+            xrender.append(mycursor.fetchall()[0][0])
+            trn_nme = f"SELECT Train_name FROM train WHERE Train_id={all_tckt[i][9]};"
+            mycursor.execute(trn_nme)
+            xrender.append(mycursor.fetchall()[0][0])
+            print(xrender)
+            final_render_list.append(xrender)
+
+        print(final_render_list)
+        return render_template("All_ticket_list.html", final_render_list=final_render_list);
 
 
-@app.route('/Booking_details')
+
+
+@app.route('/Booking_details', methods = ["GET", "POST"])
 def booking_details():
     return render_template("booking_details.html")
 

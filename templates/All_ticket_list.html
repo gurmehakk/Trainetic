@@ -19,5 +19,30 @@
         <span class="v68_138"><a href="/Contact_us">Contact Us</a></span>
         <div class="v68_140"></div>
     </div>
+
+    <span class="fortable">
+        {#    start table from here #}
+        <table>
+            <tr>
+                <th> S no.</th>
+                <th> Ticket id</th>
+                <th> Booking Date</th>
+                <th> Departure station </th>
+                <th> Arrival station </th>
+                <th> Train Name </th>
+                <th> open_this </th>
+            </tr>
+            {% for i in final_render_list %}
+                <tr>
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                    <td>{{ i[2] }}</td>
+                    <td>{{ i[3] }}</td>
+                    <td>{{ i[4] }}</td>
+                    <td>{{ i[5] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </span>
 </body>
 </html>

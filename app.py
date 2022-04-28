@@ -233,5 +233,10 @@ def all_ticket_list():
     return render_template("All_ticket_list.html")
 
 
+@app.route('/Booking_details')
+def booking_details():
+    return render_template("booking_details.html")
+
+
 if __name__ == '__main__':
     app.run()

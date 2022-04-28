@@ -397,3 +397,8 @@ button{
   display: inline-block;
   font-size: 60px;
 }
+
+button:hover{
+  background-color: rgb(82, 121, 91);
+  color: #000;
+}

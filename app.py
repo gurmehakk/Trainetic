@@ -391,6 +391,14 @@ def available_trains_userin():
             xrender = [(i // 2) + 1, final_route_list[i][7], train_name_dict[final_route_list[i][7]], from_station,
                        date_timesetup(final_route_list[i][4]), to_station,
                        date_timesetup(final_route_list[i + 1][3])]
+            coaches_data = f"SELECT Coach_name FROM coach WHERE Train_id={final_route_list[i][7]};"
+            mycursor.execute(coaches_data);
+            coaches_naam = mycursor.fetchall();
+            print(coaches_naam)
+            final_coaches_naam = []
+            for j in coaches_naam:
+                final_coaches_naam.append(j[0])
+            xrender.append(final_coaches_naam)
             final_render_list.append(xrender)
 
         return render_template("available_trains_userin.html", final_render_list = final_render_list);

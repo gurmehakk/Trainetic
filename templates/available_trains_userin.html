@@ -35,6 +35,7 @@
                 <th> Departure time </th>
                 <th> Arrival station </th>
                 <th> Arrival time </th>
+                <th> All Coaches </th>
             </tr>
             {% for i in final_render_list %}
                 <tr>
@@ -45,6 +46,13 @@
                     <td>{{ i[4] }}</td>
                     <td>{{ i[5] }}</td>
                     <td>{{ i[6] }}</td>
+                    <td>
+                        <select class="classic">
+                            {% for j in i[7] %}
+                            <option>{{ j }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
                 </tr>
             {% endfor %}
         </table>

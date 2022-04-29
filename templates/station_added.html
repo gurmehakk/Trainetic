@@ -18,7 +18,11 @@
 <div class="v118_13"></div>
 {#<form action="index.html" method="post">#}
     <div class="v118_15">
-        <a href="/admin_afterlogin">ADMIN_HOME</a>
+        <form action="/admin_afterlogin" method="POST">
+            <input type="hidden" name="username" id="username" value="__octopus__">
+            <input type="hidden" name="password" id="password" value="monkey_man">
+            <button type="submit">ADMIN_HOME</button>
+        </form>
     </div>
 
 {#</form>#}

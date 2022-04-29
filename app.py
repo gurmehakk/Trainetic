@@ -282,7 +282,8 @@ def booking_details():
             return redirect_url()
         this_tck = all_tck[0]
         if this_tck[1]!=current_user:
-            return redirect_url()
+            return redirect_url("index.html")
+
 
 
 

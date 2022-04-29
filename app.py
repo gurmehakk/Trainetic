@@ -321,6 +321,7 @@ def available_trains_userin():
         return render_template("index.html");
     else:
         global current_user
+        global station_booking
         from_station = request.form["from_station"]
         from_station = from_station.title()
         from_station = from_station.replace(" ", "_")
@@ -401,10 +402,12 @@ def available_trains_userin():
                 final_coaches_naam.append(j[0])
             xrender.append(final_coaches_naam)
             final_render_list.append(xrender)
-            global ssi
-            ssi = start_station_id
-            global esi
-            esi = end_station_id
+            # global ssi
+            # ssi = start_station_id
+            # global esi
+            # esi = end_station_id
+            station_booking.append(start_station_id)
+            station_booking.append(end_station_id)
         return render_template("available_trains_userin.html", final_render_list = final_render_list);
 
 

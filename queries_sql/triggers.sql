@@ -54,4 +54,23 @@ END$$
 
 DELIMITER ;
 
+DELIMITER $$
 
+CREATE TRIGGER after_ticket_booked
+BEFORE INSERT
+ON passenger FOR EACH ROW
+BEGIN
+	set @trainid=new.Train_id; 
+	set @ticketno=new.Ticket_id;
+    SET @coach = (SELECT p.Coach_id 
+               FROM passenger p 
+               WHERE p.ticket_no = @ticketno);
+	if @coach= 'General' then 
+		UPDATE Route set Seats_General = Seats_General -1 WHERE Train_id = @trainid;
+	elseif @coach='AC_1' then        
+		UPDATE Route set Seats_AC1 = Seats_AC1-1 WHERE Train_id = @trainid ;   
+	elseif @coach='AC_2' then       
+		UPDATE Route set Seats_AC2 = Seats_AC2-1 WHERE Train_id = @trainid ;
+	end if;
+END$$
+DELIMITER ;

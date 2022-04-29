@@ -401,7 +401,10 @@ def available_trains_userin():
                 final_coaches_naam.append(j[0])
             xrender.append(final_coaches_naam)
             final_render_list.append(xrender)
-
+            global ssi
+            ssi = start_station_id
+            global esi
+            esi = end_station_id
         return render_template("available_trains_userin.html", final_render_list = final_render_list);
 
 

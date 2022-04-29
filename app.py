@@ -269,20 +269,24 @@ def all_ticket_list():
 
 @app.route('/Booking_details', methods = ["GET", "POST"])
 def booking_details():
-    global current_user
+    # global current_user
     if (request.method == "GET"):
         return render_template("index.html");
     else:
+        global current_user
         ticket_id = request.form["ticket_id_show"]
-        # print(ticket_id)
+        # ticket_id = (request.args.get("ticket_id_show"))
+        print(ticket_id)
         get_tck = f"SELECT * FROM passenger WHERE Ticket_id = {ticket_id};"
         mycursor.execute(get_tck)
         all_tck = mycursor.fetchall()
-        if len(all_tck)==0:
-            return redirect_url()
-        this_tck = all_tck[0]
-        if this_tck[1]!=current_user:
-            return redirect_url("index.html")
+        print(all_tck)
+        print(current_user)
+        # if len(all_tck)==0:
+        #     return redirect_url()
+        # this_tck = all_tck[0]
+        # if this_tck[1]!=current_user:
+        #     return redirect_url("index.html")
 
 
 

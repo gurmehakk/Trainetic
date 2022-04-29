@@ -18,28 +18,28 @@
     <div class="v68_104"></div>
     <div class="v68_105"></div>
     <div class="v68_108"></div>
-    <span class="v68_109">DEPARTURE DESTINATION</span>
-    <span class="v68_110">ARRIVAL DESTINATION</span>
-    <span class="v68_111">DATE OF TRAVEL</span>
-    <span class="v68_114">COACH TYPE</span>
+    <span class="v68_109">FROM STATION</span>
+    <span class="v68_110">TO STATION</span>
+{#    <span class="v68_111">DATE OF TRAVEL</span>#}
+{#    <span class="v68_114">COACH TYPE</span>#}
     <!-- <span class="v68_115">CHECK AVAILABLE TRAINS</span> -->
     <div class="v68_117"></div>
-    <span class="v93_4"><a href="#">About Us</a></span>
-    <span class="v93_2"><a href="#">Contact us</a></span>
+    <span class="v93_4"><a href="/About_us">About Us</a></span>
+    <span class="v93_2"><a href="/Contact_us">Contact us</a></span>
 {#    <span class="v93_3"><a href="#">Admin Login</a></span>#}
-    <form action="index.html" method="GET">
+    <form action="/available_trains_userin" method="POST">
       <div class="v68_102">
-          <input type="text" name="destination" id="destination" placeholder="Destination">
+          <input type="text" name="from_station" id="from_station" placeholder="From Station" required />
       </div>
       <div class="v68_103">
-          <input type="text" name="arrival" id="arrival" placeholder="Arrival">
+          <input type="text" name="to_station" id="to_station" placeholder="To Station" required />
       </div>
-      <div class="v68_104">
-          <input type="text" name="coach" id="coach" placeholder="Coach">
-      </div>
-      <div class="v68_105">
-          <input type="date" name="date" id="date" placeholder="Date">
-      </div>
+{#      <div class="v68_104">#}
+{#          <input type="text" name="coach_req" id="coach_req" placeholder="Coach" />#}
+{#      </div>#}
+{#      <div class="v68_105">#}
+{#          <input type="date" name="date_want" id="date_want" placeholder="Date" />#}
+{#      </div>#}
       <div class="v68_108">
           <button type="submit">CHECK</button>
       </div>

@@ -314,5 +314,88 @@ def booking_details():
         return render_template("booking_details.html", final_render_list=final_render_list);
 
 
+@app.route("/available_trains_userin", methods = ["GET", "POST"])
+def available_trains_userin():
+    if (request.method == "GET"):
+        return render_template("index.html");
+    else:
+        global current_user
+        from_station = request.form["from_station"]
+        from_station = from_station.title()
+        from_station = from_station.replace(" ", "_")
+        to_station = request.form["to_station"]
+        to_station = to_station.title()
+        to_station = to_station.replace(" ", "_")
+
+        # coach_req = request.form["coach_req"]
+        # date_want = request.form["date_want"]
+
+        chk_start = f"SELECT * FROM station WHERE Station_name='{from_station}';"
+        mycursor.execute(chk_start);
+        start_station_list = mycursor.fetchall();
+        if len(start_station_list) < 1:
+            return render_template("index.html")
+        chk_end = f"SELECT * FROM station WHERE Station_name='{to_station}';"
+        mycursor.execute(chk_end);
+        end_station_list = mycursor.fetchall();
+        if len(end_station_list) < 1:
+            return render_template("index.html")
+
+        start_station = start_station_list[0]
+        end_station = end_station_list[0]
+
+
+        start_station_id = start_station[0]
+        end_station_id = end_station[0]
+        get_all_route = f"SELECT * FROM route WHERE (Start_station_id='{start_station_id}' OR Start_station_id='{end_station_id}');"
+        mycursor.execute(get_all_route)
+        all_route_list = mycursor.fetchall();
+        # checkpoint 2 success
+        # print(all_route_list);
+        # print(len(all_route_list))
+        all_route_list.sort(key=lambda x: x[0])
+        final_route_list = []
+        ir = 0
+        lnr = len(all_route_list)
+        while (ir < lnr - 1):
+            if (all_route_list[ir][5] != start_station_id):
+                ir += 1
+                continue
+            if (all_route_list[ir + 1][5] == start_station_id):
+                ir += 1
+                continue
+            if (all_route_list[ir][7] != all_route_list[ir + 1][7]):
+                ir += 1
+                continue
+            final_route_list.append(all_route_list[ir])
+            final_route_list.append(all_route_list[ir + 1])
+            ir += 2
+        # print(final_route_list)
+        train_name_dict = {}
+        for i in final_route_list:
+            # print(i[7])
+            trnfind = f"SELECT Train_name FROM train WHERE Train_id={i[7]};"
+            mycursor.execute(trnfind)
+            train_ka_naam = (mycursor.fetchall())[0][0]
+            train_name_dict[i[7]] = train_ka_naam
+
+        # Another checkpoint working fine
+        # for i in final_route_list:
+        #     print(i[7])
+        #     print(train_name_dict[i[7]])
+
+        # if len(final_route_list)<1:
+        #     return render_template()
+        final_render_list = []
+        for i in range(0, len(final_route_list) - 1, 2):
+            xrender = [(i // 2) + 1, final_route_list[i][7], train_name_dict[final_route_list[i][7]], from_station,
+                       date_timesetup(final_route_list[i][4]), to_station,
+                       date_timesetup(final_route_list[i + 1][3])]
+            final_render_list.append(xrender)
+
+        return render_template("available_trains_userin.html", final_render_list = final_render_list);
+
+
+
 if __name__ == '__main__':
     app.run()

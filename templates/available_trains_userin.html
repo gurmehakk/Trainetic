@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+	    <link href="https://fonts.googleapis.com/css?family=Jacques+Francois&display=swap" rel="stylesheet" />
+{#        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/available_trains.css') }}">#}
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/available_trains.css') }}"/>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="v68_118">
+            <div class="v116_13">
+                <div class="v116_12">
+                    <div class="v68_119"></div>
+    </div>
+        </div>
+        <div class="v68_129"></div>
+        <span class="v68_130">AVAILABLE TRAINS</span>
+        <span class="v68_131"><button onclick="history.back()">BACK</button></span>
+        <div class="v68_136"></div>
+
+        <span class="v68_137"><a href="/About_us">About Us</a></span>
+        <span class="v68_138"><a href="/Contact_us">Contact Us</a></span>
+        <div class="v68_140"></div>
+    </div>
+
+    <span class="fortable">
+        {#    start table from here #}
+        <table>
+            <tr>
+                <th> S no.</th>
+                <th> Train id</th>
+                <th> Train name</th>
+                <th> Departure station </th>
+                <th> Departure time </th>
+                <th> Arrival station </th>
+                <th> Arrival time </th>
+            </tr>
+            {% for i in final_render_list %}
+                <tr>
+                    <td>{{ i[0] }}</td>
+                    <td>{{ i[1] }}</td>
+                    <td>{{ i[2] }}</td>
+                    <td>{{ i[3] }}</td>
+                    <td>{{ i[4] }}</td>
+                    <td>{{ i[5] }}</td>
+                    <td>{{ i[6] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </span>
+</body>
+</html>

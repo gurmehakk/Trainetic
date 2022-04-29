@@ -263,7 +263,7 @@ body {
 .v105_2 {
   width: 505px;
   height: 46px;
-  background: rgba(255,252,252,1);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 382px;
@@ -273,11 +273,14 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  font-size: 32px;
+  align-content: center;
+  text-align: center;
 }
 .v105_3 {
   width: 505px;
   height: 46px;
-  background: rgb(250, 250, 247);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 524px;
@@ -287,11 +290,15 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  overflow: hidden;
+  font-size: 32px;
+  align-content: center;
+  text-align: center;
 }
 .v105_4 {
   width: 505px;
   height: 46px;
-  background: rgb(243, 245, 245);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 670px;
@@ -301,11 +308,15 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  overflow: hidden;
+  font-size: 32px;
+  align-content: center;
+  text-align: center;
 }
 .v105_5 {
   width: 505px;
   height: 46px;
-  background: rgb(245, 245, 247);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 382px;
@@ -315,11 +326,15 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  overflow: hidden;
+  font-size: 32px;
+  align-content: center;
+  text-align: center;
 }
 .v105_6 {
   width: 505px;
   height: 46px;
-  background: rgb(246, 242, 242);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 524px;
@@ -329,11 +344,15 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  overflow: hidden;
+  font-size: 32px;
+  align-content: center;
+  text-align: center;
 }
 .v105_8 {
   width: 400px;
   height: 46px;
-  background: rgb(255, 255, 255);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 382px;
@@ -343,11 +362,15 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  overflow: hidden;
+  font-size: 32px;
+  align-content: center;
+  text-align: center;
 }
 .v105_9 {
   width: 400px;
   height: 46px;
-  background: rgb(249, 249, 249);
+  background: #649780;
   opacity: 1;
   position: absolute;
   top: 520px;
@@ -357,6 +380,10 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
   overflow: hidden;
+  overflow: hidden;
+  font-size: 32px;
+  align-content: center;
+  text-align: center;
 }
 a{
   text-decoration: none;
@@ -402,3 +429,4 @@ button:hover{
   background-color: rgb(82, 121, 91);
   color: #000;
 }
+

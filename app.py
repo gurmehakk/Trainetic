@@ -288,10 +288,30 @@ def booking_details():
         # if this_tck[1]!=current_user:
         #     return redirect_url("index.html")
 
+        final_render_list = []
+        frm_st = f"SELECT Station_name FROM station WHERE Station_id={this_tck[5]};"
+        mycursor.execute(frm_st)
+        final_render_list.append(mycursor.fetchall()[0][0])
+        to_st = f"SELECT Station_name FROM station WHERE Station_id={this_tck[6]};"
+        mycursor.execute(to_st)
+        final_render_list.append(mycursor.fetchall()[0][0])
+        ch_name = f"SELECT Coach_name FROM coach WHERE Coach_id={this_tck[3]};"
+        mycursor.execute(ch_name)
+        final_render_list.append(mycursor.fetchall()[0][0])
+        final_render_list.append(this_tck[7])
+        final_render_list.append(this_tck[8])
+        arrvt = f"SELECT Arrival_time FROM route WHERE Train_id={this_tck[9]} AND Start_station_id={this_tck[6]};"
+        mycursor.execute(arrvt);
+        final_render_list.append(date_timesetup((mycursor.fetchall())[0][0]))
+        # print(mycursor.fetchall())
+        depvt = f"SELECT Departure_time FROM route WHERE Train_id={this_tck[9]} AND Start_station_id={this_tck[5]};"
+        mycursor.execute(depvt);
+        final_render_list.append((date_timesetup((mycursor.fetchall())[0][0])))
+        # print(mycursor.fetchall())
 
+        print(final_render_list)
 
-
-        return render_template("booking_details.html")
+        return render_template("booking_details.html", final_render_list=final_render_list);
 
 
 if __name__ == '__main__':

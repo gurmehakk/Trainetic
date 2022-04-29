@@ -420,8 +420,15 @@ def ticket_booked():
         coach_name = request.form["coach_name"]
         av_seats = f"UPDATE train SET Available_seats=Available_seats-1 WHERE Train_id = '{train_id}' ';"
         coach_id = f"SELECT Coach_id FROM coach WHERE (Train_id='{train_id}' Coach_name ='{coach_name}');"
-       // adding_ticket = f"INSERT INTO passenger(Station_id, Station_name, No_of_terminals) VALUES({str(new_station_id)}, '{station_name}', {str(terminal_count)});"
+        ticket_id = f"SELECT max(Ticket_id) FROM passenger);"
+        ticket_id+=5
+        now = datetime.now()
+        dt = now.strftime("%d/%m/%Y %H:%M:%S")
+        route_id = 0
 
+        adding_ticket = f"INSERT INTO passenger(Ticket_id,Adhaar_no,Date_of_Booking,Coach_id,Route_id,Start_station_id,End_station_id,Start_terminal_id,End_terminal_id,Train_id) " \
+                        f"VALUES({ticket_id}, {current_user}, {dt},{coach_id},{Route_id},{station_booking[-2]},{station_booking[-1]},{},{},{train_id});"
 
+        return render_template("ticket_booked.html");
 if __name__ == '__main__':
     app.run()

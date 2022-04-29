@@ -406,6 +406,7 @@ def available_trains_userin():
             # ssi = start_station_id
             # global esi
             # esi = end_station_id
+            station_booking = [];
             station_booking.append(start_station_id)
             station_booking.append(end_station_id)
         return render_template("available_trains_userin.html", final_render_list = final_render_list);
@@ -416,19 +417,33 @@ def ticket_booked():
     if (request.method == "GET"):
         return render_template("index.html");
     else:
+        global current_user;
+        global station_booking;
         train_id = request.form["train_id"]
         coach_name = request.form["coach_name"]
-        av_seats = f"UPDATE train SET Available_seats=Available_seats-1 WHERE Train_id = '{train_id}' ';"
-        coach_id = f"SELECT Coach_id FROM coach WHERE (Train_id='{train_id}' Coach_name ='{coach_name}');"
-        ticket_id = f"SELECT max(Ticket_id) FROM passenger);"
+        # av_seats = f"UPDATE train SET Available_seats=Available_seats-1 WHERE Train_id = '{train_id}' ';"
+        all_route_lst = f"SELECT * FROM route WHERE Train_id={train_id};"
+        mycursor.execute(all_route_lst);
+        route_list_now = mycursor.fetchall();
+        if len(route_list_now)<2:
+            return render_template("index.html");
+
+        coach_id_str = f"SELECT Coach_id FROM coach WHERE (Train_id={train_id} Coach_name ='{coach_name}');"
+        mycursor.execute(coach_id_str);
+        coach_id = mycursor.fetchall()[0][0]
+        ticket_id_str = f"SELECT max(Ticket_id) FROM passenger);"
+        mycursor.execute(ticket_id_str)
+        ticket_id = mycursor.fetchall()
         ticket_id+=5
-        now = datetime.now()
-        dt = now.strftime("%d/%m/%Y %H:%M:%S")
+        now = date_timesetup(datetime.now())
+        # dt = now.strftime("%d/%m/%Y %H:%M:%S")
         route_id = 0
 
         adding_ticket = f"INSERT INTO passenger(Ticket_id,Adhaar_no,Date_of_Booking,Coach_id,Route_id,Start_station_id,End_station_id,Start_terminal_id,End_terminal_id,Train_id) " \
                         f"VALUES({ticket_id}, {current_user}, {dt},{coach_id},{Route_id},{station_booking[-2]},{station_booking[-1]},{},{},{train_id});"
 
         return render_template("ticket_booked.html");
+
+
 if __name__ == '__main__':
     app.run()

@@ -7,7 +7,7 @@ CREATE TRIGGER check_pass
     ON users FOR EACH ROW
 BEGIN
     if(length(new.passwords)<7) then
-		signal sqlstate '45000' set message_text = "Paswsword length cannot be less than 7 characters"; 
+		signal sqlstate '45000' set message_text = "Password length cannot be less than 7 characters"; 
 	end if;
 END$$    
 DELIMITER ;
@@ -15,27 +15,6 @@ DELIMITER ;
 drop trigger if exists after_ticket_canceled;
 DELIMITER $$
 
-CREATE TRIGGER after_ticket_canceled
-BEFORE DELETE
-ON passenger FOR EACH ROW
-BEGIN
-	set @trainid=old.Train_id; 
-	set @ticketno=old.Ticket_id;
-    SET @coach = (SELECT p.Coach_id 
-               FROM passenger p 
-               WHERE p.ticket_no = @ticketno);
-	if @coach= 'General' then 
-		UPDATE Route set Seats_General = Seats_General +1 WHERE Route.Train_id = @trainid;
-        UPDATE Train set Available_seats = Available_seats +1 WHERE Train.Train_id = @trainid;
-	elseif @coach='AC_1' then        
-		UPDATE Route set Seats_AC1 = Seats_AC1+1 WHERE Route.Train_id = @trainid ;
-        UPDATE Train set Available_seats = Available_seats +1 WHERE Train.Train_id = @trainid;
-	elseif @coach='AC_2' then       
-		UPDATE Route set Seats_AC2 = Seats_AC2+1 WHERE Route.Train_id = @trainid ;
-        UPDATE Train set Available_seats = Available_seats +1 WHERE Train.Train_id = @trainid;
-	end if;
-END$$
-DELIMITER ;
 
 DELIMITER $$
 
@@ -57,27 +36,26 @@ END$$
 
 DELIMITER ;
 
-drop trigger if exists after_ticket_booked;
+drop trigger if exists after_ticket_canceled;
 DELIMITER $$
-
-CREATE TRIGGER after_ticket_booked
-BEFORE INSERT
+CREATE TRIGGER after_ticket_canceled
+BEFORE DELETE
 ON passenger FOR EACH ROW
 BEGIN
-	set @trainid=new.Train_id; 
-	set @ticketno=new.Ticket_id;
-    SET @coach = (SELECT p.Coach_id 
-               FROM passenger p 
-               WHERE p.ticket_no = @ticketno);
-	if @coach= 'General' then 
-		UPDATE Route set Seats_General = Seats_General -1 WHERE Route.Train_id = @trainid;
-        UPDATE Train set Available_seats = Available_seats -1 WHERE Train.Train_id = @trainid;
-	elseif @coach='AC_1' then        
-		UPDATE Route set Seats_AC1 = Seats_AC1-1 WHERE Route.Train_id = @trainid ;   
-        UPDATE Train set Available_seats = Available_seats -1 WHERE Train.Train_id = @trainid;
-	elseif @coach='AC_2' then       
-		UPDATE Route set Seats_AC2 = Seats_AC2-1 WHERE Route.Train_id = @trainid ;
-        UPDATE Train set Available_seats = Available_seats -1 WHERE Train.Train_id = @trainid;
-	end if;
+	UPDATE Train 
+    set Available_seats = Available_seats + 1
+    where Train.Train_id = old.Train_id;
+END$$
+DELIMITER ;
+
+drop trigger if exists after_ticket_booked;
+DELIMITER $$
+CREATE TRIGGER after_ticket_booked
+BEFORE DELETE
+ON passenger FOR EACH ROW
+BEGIN
+	UPDATE Train 
+    set Available_seats = Available_seats - 1
+    where Train.Train_id = old.Train_id;
 END$$
 DELIMITER ;

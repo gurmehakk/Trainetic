@@ -8,6 +8,7 @@ mydb = mysql.connector.connect(host="localhost", user="root", passwd="AbCd@123",
 mycursor = mydb.cursor()
 
 current_user = 0;
+station_booking=[]  # only 2 arguments from_station_id to_station_id
 
 def date_timesetup(given):
     return given.strftime("%m/%d/%Y, %H:%M:%S")
@@ -402,6 +403,11 @@ def available_trains_userin():
             final_render_list.append(xrender)
 
         return render_template("available_trains_userin.html", final_render_list = final_render_list);
+
+
+@app.route("/ticket_booked", methods=["POST", "GET"])
+def ticket_booked():
+    pass
 
 
 

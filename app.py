@@ -282,9 +282,9 @@ def booking_details():
         all_tck = mycursor.fetchall()
         print(all_tck)
         print(current_user)
-        # if len(all_tck)==0:
-        #     return redirect_url()
-        # this_tck = all_tck[0]
+        if len(all_tck)==0:
+            return render_template("index.html")
+        this_tck = all_tck[0]
         # if this_tck[1]!=current_user:
         #     return redirect_url("index.html")
 

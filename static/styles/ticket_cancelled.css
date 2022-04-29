@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #a1c8ba;
+  font-size: 14px;
+}
+.v118_2 {
+  width: 100%;
+  height: 1117px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v118_3 {
+  width: 100%;
+  height: 1117px;
+  background: url("../images/v4_4.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v118_4 {
+  width: 100%;
+  height: 1117px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v118_5 {
+  width: 100%;
+  height: 100%;
+  background: rgba(161,200,186,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.v118_15 {
+  width: 515px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 790px;
+  left: 606px;
+  font-family: Hammersmith One;
+  font-weight: Regular;
+  font-size: 48px;
+  opacity: 1;
+  text-align: center;
+}
+.v118_6 {
+  width: 100px;
+  height: 100px;
+  background: url("../images/v4_4.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 843px;
+  left: 585px;
+  overflow: hidden;
+}
+.v118_7 {
+  width: 775px;
+  color: rgba(62,77,62,1);
+  position: absolute;
+  top: 394px;
+  left: 476px;
+  font-family: Inter;
+  font-weight: Bold Italic;
+  font-size: 60px;
+  opacity: 1;
+  text-align: center;
+}
+.v118_9 {
+  width: 100%;
+  height: 142px;
+  background: rgba(248,248,248,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v118_13 {
+  width: 141px;
+  height: 125px;
+  background: url("../images/v4_4.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  overflow: hidden;
+}
+button{
+  background-color:rgb(36, 65, 36); /* Green */
+  width: 515px;
+  height: 100px;
+  left: 800px;
+  border: none;
+  color: rgba(100, 177, 145, 0.658);
+  padding: 15px 32px;
+  border-radius: 70px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 60px;
+}
+a{
+  text-decoration: none;
+  color: rgb(59, 56, 56);
+  padding: 5px 20px;
+  border: 4px solid rgb(255, 255, 255);
+  border-radius: 30px;
+  font-size: 40px;
+}
+
+a:hover{
+  background-color: rgb(82, 121, 91);
+  color: #000;
+}
+
+button:hover{
+  background-color: rgb(82, 121, 91);
+  color: #000;
+}

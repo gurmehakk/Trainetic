@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Hammersmith+One&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/ticket_cancelled.css') }}">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="v118_2"><div class="v118_3"><div class="v118_4"><div class="v118_5"></div>
+        <div class="v118_14"></div>
+{#        <span class="v118_15">LOGIN</span>#}
+    </div>
+</div>
+{#<div class="v118_6"></div>#}
+<span class="v118_7">THE TICKET HAS BEEN CANCELLED!</span>
+<div class="v118_9"></div>
+<div class="v118_13"></div>
+{#<form action="index.html" method="post">#}
+    <div class="v118_15">
+        <form action="/user_info" method="POST">
+            <input type="hidden" name="adhaar" id="adhaar" value="{{ thisuser }}">
+            <input type="hidden" name="password" id="password" value="{{ thispasswd }}">
+            <button type="submit">HOME</button>
+        </form>
+    </div>
+
+{#</form>#}
+</div>
+</body>
+</html>

@@ -496,5 +496,67 @@ def ticket_booked():
         return render_template("ticket_booked.html", thisuser = current_user, thispasswd = pasw);
 
 
+@app.route('/ticket_cancelled', methods=["GET", "POST"])
+def ticket_cancelled():
+    if (request.method == "GET"):
+        return render_template("index.html");
+    else:
+        global current_user;
+        ticket_id = request.form["ticket_id_show"]
+        gettckstr = f"SELECT * FROM passenger WHERE Ticket_id={ticket_id};"
+        mycursor.execute(gettckstr);
+        req_tck = mycursor.fetchall()
+
+        pass_str = f"SELECT passwords FROM users WHERE Adhaar_no={current_user};"
+        mycursor.execute(pass_str);
+        pasw = (mycursor.fetchall())[0][0]
+        if len(req_tck)<1:
+            return render_template("ticket_cancelled.html", thisuser=current_user, thispasswd=pasw)
+
+        this_tck = req_tck[0]
+        coach_id = this_tck[3]
+        train_id = this_tck[9]
+        first_route_id = this_tck[4]
+        last_route_id = 0
+        get_coach_str = f"SELECT Coach_name FROM coach WHERE Coach_id={coach_id}"
+        mycursor.execute(get_coach_str)
+        coach_name = (mycursor.fetchall())[0][0]
+
+        get_all_rts = f"SELECT * FROM route WHERE Train_id={train_id};"
+        mycursor.execute(get_all_rts)
+        all_routes = mycursor.fetchall();
+        start_station_id = this_tck[5];
+        end_station_id = this_tck[6];
+
+        for i in all_routes:
+            if i[5]==end_station_id:
+                last_route_id = i[0]
+
+        for i in all_routes:
+            if (i[0]<last_route_id) and (i[0]>=first_route_id):
+                if coach_name=="Genral":
+                    chstr = f"UPDATE route SET Seats_General = Seats_General + 1 WHERE Route_id={i[0]};"
+                    mycursor.execute(chstr);
+                    mydb.commit()
+                elif coach_name=="AC_1":
+                    chstr = f"UPDATE route SET Seats_AC1 = Seats_AC1 + 1 WHERE Route_id={i[0]};"
+                    mycursor.execute(chstr);
+                    mydb.commit()
+                else:
+                    chstr = f"UPDATE route SET Seats_AC2 = Seats_AC2 + 1 WHERE Route_id={i[0]};"
+                    mycursor.execute(chstr);
+                    mydb.commit()
+
+        main_delete = f"DELETE FROM passenger WHERE Ticket_id={ticket_id};"
+        mycursor.execute(main_delete)
+        mydb.commit();
+
+
+
+
+
+
+        return render_template("ticket_cancelled.html", thisuser = current_user, thispasswd = pasw)
+
 if __name__ == '__main__':
     app.run()

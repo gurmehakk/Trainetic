@@ -413,8 +413,14 @@ def available_trains_userin():
 
 @app.route("/ticket_booked", methods=["POST", "GET"])
 def ticket_booked():
-    pass
-
+    if (request.method == "GET"):
+        return render_template("index.html");
+    else:
+        train_id = request.form["train_id"]
+        coach_name = request.form["coach_name"]
+        av_seats = f"UPDATE train SET Available_seats=Available_seats-1 WHERE Train_id = '{train_id}' ';"
+        coach_id = f"SELECT Coach_id FROM coach WHERE (Train_id='{train_id}' Coach_name ='{coach_name}');"
+       // adding_ticket = f"INSERT INTO passenger(Station_id, Station_name, No_of_terminals) VALUES({str(new_station_id)}, '{station_name}', {str(terminal_count)});"
 
 
 if __name__ == '__main__':

@@ -135,3 +135,8 @@ a:hover{
   background-color: rgb(82, 121, 91);
   color: #000;
 }
+
+button:hover{
+  background-color: rgb(82, 121, 91);
+  color: #000;
+}

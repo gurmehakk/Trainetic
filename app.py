@@ -456,9 +456,17 @@ def ticket_booked():
                 break
 
         for i in route_list_now:
-            if (i[0]>last_route_id) and (i[0]<=first_route_id):
+            if (i[0]<last_route_id) and (i[0]>=first_route_id):
                 if coach_name=="Genral":
                     chstr = f"UPDATE route SET Seats_General = Seats_General - 1 WHERE Route_id={i[0]};"
+                    mycursor.execute(chstr);
+                    mydb.commit()
+                elif coach_name=="AC_1":
+                    chstr = f"UPDATE route SET Seats_AC1 = Seats_AC1 - 1 WHERE Route_id={i[0]};"
+                    mycursor.execute(chstr);
+                    mydb.commit()
+                else:
+                    chstr = f"UPDATE route SET Seats_AC2 = Seats_AC2 - 1 WHERE Route_id={i[0]};"
                     mycursor.execute(chstr);
                     mydb.commit()
 
@@ -472,13 +480,14 @@ def ticket_booked():
         mycursor.execute(ticket_id_str)
         ticket_id = mycursor.fetchall()[0][0]
         ticket_id+=5
-        now = date_timesetup(datetime.datetime.now())
-        # dt = now.strftime("%d/%m/%Y %H:%M:%S")
+        now = datetime.datetime.now()
+        dt = now.strftime("%Y-%m-%d %H:%M:%S") #"2022-09-06 20:50:32"
         # route_id = 0
 
         # adding_ticket = f"INSERT INTO passenger(Ticket_id,Adhaar_no,Date_of_Booking,Coach_id,Route_id,Start_station_id,End_station_id,Start_terminal_id,End_terminal_id,Train_id) " \
         #                 f"VALUES({ticket_id}, {current_user}, {dt},{coach_id},{Route_id},{station_booking[-2]},{station_booking[-1]},{},{},{train_id});"
-        add_tck_str = f"INSERT INTO passenger(Ticket_id,Adhaar_no,Date_of_Booking,Coach_id,Route_id,Start_station_id,End_station_id,Start_terminal_id,End_terminal_id,Train_id) VALUES ({str(ticket_id)},{str(current_user)},{now}, {str(coach_id)}, {str(first_route_id)}, {str(station_booking[0])}, {str(station_booking[1])}, {str(start_term_id)}, {str(end_term_id)}, {str(train_id)});"
+        add_tck_str = f"INSERT INTO passenger(Ticket_id, Adhaar_no, Date_of_Booking, Coach_id, Route_id, Start_station_id, End_Station_id, Start_terminal_id, End_terminal_id, Train_id) VALUES ({str(ticket_id)},{str(current_user)},'{dt}', {str(coach_id)}, {str(first_route_id)}, {str(station_booking[0])}, {str(station_booking[1])}, {str(start_term_id)}, {str(end_term_id)}, {str(train_id)});"
+        print(add_tck_str)
         mycursor.execute(add_tck_str);
         mydb.commit()
         pass_str = f"SELECT passwords FROM users WHERE Adhaar_no={current_user};"

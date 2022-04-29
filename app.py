@@ -428,21 +428,63 @@ def ticket_booked():
         if len(route_list_now)<2:
             return render_template("index.html");
 
-        coach_id_str = f"SELECT Coach_id FROM coach WHERE (Train_id={train_id} Coach_name ='{coach_name}');"
+        first_route_id = 0
+        last_route_id = 0
+
+        for i in route_list_now:
+            if i[5]==station_booking[0]:
+                first_route_id = i[0]
+                break
+
+        for i in route_list_now:
+            if i[5]==station_booking[1]:
+                last_route_id = i[0]
+                break
+
+
+
+        start_term_id, end_term_id = 0, 0;
+
+        for i in route_list_now:
+            if i[5]==station_booking[0]:
+                start_term_id = i[1]
+                break
+
+        for i in route_list_now:
+            if i[5]==station_booking[1]:
+                end_term_id = i[1]
+                break
+
+        for i in route_list_now:
+            if (i[0]>last_route_id) and (i[0]<=first_route_id):
+                if coach_name=="Genral":
+                    chstr = f"UPDATE route SET Seats_General = Seats_General - 1 WHERE Route_id={i[0]};"
+                    mycursor.execute(chstr);
+                    mydb.commit()
+
+
+
+
+        coach_id_str = f"SELECT Coach_id FROM coach WHERE (Train_id={train_id} AND Coach_name ='{coach_name}');"
         mycursor.execute(coach_id_str);
         coach_id = mycursor.fetchall()[0][0]
-        ticket_id_str = f"SELECT max(Ticket_id) FROM passenger);"
+        ticket_id_str = f"SELECT max(Ticket_id) FROM passenger;"
         mycursor.execute(ticket_id_str)
-        ticket_id = mycursor.fetchall()
+        ticket_id = mycursor.fetchall()[0][0]
         ticket_id+=5
-        now = date_timesetup(datetime.now())
+        now = date_timesetup(datetime.datetime.now())
         # dt = now.strftime("%d/%m/%Y %H:%M:%S")
-        route_id = 0
+        # route_id = 0
 
-        adding_ticket = f"INSERT INTO passenger(Ticket_id,Adhaar_no,Date_of_Booking,Coach_id,Route_id,Start_station_id,End_station_id,Start_terminal_id,End_terminal_id,Train_id) " \
-                        f"VALUES({ticket_id}, {current_user}, {dt},{coach_id},{Route_id},{station_booking[-2]},{station_booking[-1]},{},{},{train_id});"
-
-        return render_template("ticket_booked.html");
+        # adding_ticket = f"INSERT INTO passenger(Ticket_id,Adhaar_no,Date_of_Booking,Coach_id,Route_id,Start_station_id,End_station_id,Start_terminal_id,End_terminal_id,Train_id) " \
+        #                 f"VALUES({ticket_id}, {current_user}, {dt},{coach_id},{Route_id},{station_booking[-2]},{station_booking[-1]},{},{},{train_id});"
+        add_tck_str = f"INSERT INTO passenger(Ticket_id,Adhaar_no,Date_of_Booking,Coach_id,Route_id,Start_station_id,End_station_id,Start_terminal_id,End_terminal_id,Train_id) VALUES ({str(ticket_id)},{str(current_user)},{now}, {str(coach_id)}, {str(first_route_id)}, {str(station_booking[0])}, {str(station_booking[1])}, {str(start_term_id)}, {str(end_term_id)}, {str(train_id)});"
+        mycursor.execute(add_tck_str);
+        mydb.commit()
+        pass_str = f"SELECT passwords FROM users WHERE Adhaar_no={current_user};"
+        mycursor.execute(pass_str);
+        pasw = (mycursor.fetchall())[0][0]
+        return render_template("ticket_booked.html", thisuser = current_user, thispasswd = pasw);
 
 
 if __name__ == '__main__':

@@ -56,12 +56,12 @@
                 </tr>
             {% endfor %}
         <tr>
-            <form action="/" method="POST">
+            <form action="/ticket_booked" method="POST">
                 <td colspan="3">
                     <input type="number" name="train_id" id="train_id" placeholder="Enter Train id" required />
                 </td>
                 <td colspan="3">
-                    <input type="number" name="coach_name" id="coach_name" placeholder="Enter Coach name" required />
+                    <input type="text" name="coach_name" id="coach_name" placeholder="Enter Coach name" required />
                 </td>
                 <td colspan="2"><button type="submit">BOOK</button></td>
             </form>

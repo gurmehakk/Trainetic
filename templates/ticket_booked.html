@@ -19,6 +19,8 @@
 {#<form action="index.html" method="post">#}
     <div class="v118_15">
         <form action="/user_info" method="POST">
+            <input type="hidden" name="adhaar" id="adhaar" value="{{ thisuser }}">
+            <input type="hidden" name="password" id="password" value="{{ thispasswd }}">
             <button type="submit">HOME</button>
         </form>
     </div>

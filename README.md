@@ -42,30 +42,33 @@ Run required MySQL command to run populate all the databases.
 [CSV Files](https://github.com/krishnamomar/Trainetic/tree/main/All_Database_CSV)
 
 ## Schematic Diagram of The DATABASE
+![Scema Diagram](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/Schematic_Diagram.png)
 
 ## All Major Screens 
- 
+
 ### Main Page
-
+![index page](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/main_page.png)
 ### Browsing Trains 
-
+![browse trains](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/available_trains.png)
 ### User Login Page
-
+![user login](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/user_login_page.png)
 ###  User Info Page
-
+![user main page](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/user_info_page.png)
 ### All Booked Ticket List 
-
+![all tickets](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/All_booked_tickets.png)
 ### Browse Trains
-
+![all trains](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/Browse_trains.png)
 ### Book a Ticket
-
+![booked](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/Booking_ticket.png)
 ### Registration Screen
-
+![register new user](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/Registration_screen.png)
 ### Admin Login
 
 > Please note admin can only login through following credentials:<br />
 > Username:  *\_octopus\_* <br />
-> Password: *monkey_man*
+> Password: *monkey_man* <br />
+
+![admin login](https://github.com/krishnamomar/Trainetic/blob/main/Report/images/admin_login.png)
 
 ## Other Queries 
 There are more mysql query files, meant for running the database related function without the frontend being involved. 

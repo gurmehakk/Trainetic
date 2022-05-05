@@ -1,12 +1,12 @@
-CREATE USER 'Big_Boss'@'Root';
+CREATE USER 'Big_Boss'@'Localhost';
 CREATE USER 'Admin_railway'@'Root';
-CREATE USER 'User'@'Root';
-CREATE USER 'Worker'@'Root';
+CREATE USER 'User'@'Localhost';
+CREATE USER 'Worker'@'Localhost';
 
 -- Big_Boss
 GRANT ALL
 ON *.*
-TO 'Big_Boss'@'Root';
+TO 'Big_Boss'@'Localhost';
 
 -- Admin_railway
 GRANT SELECT
@@ -24,7 +24,7 @@ TO 'Admin_railway'@'Root';
 -- User
 GRANT SELECT
 ON Train_seat
-TO 'User'@'Root';
+TO 'User'@'Localhost';
 
 GRANT SELECT
 ON some_passenge
@@ -33,7 +33,7 @@ TO 'User'@'Root';
 -- workshop organizer
 GRANT SELECT
 ON Route_pas
-TO 'Worker'@'Root';
+TO 'Worker'@'Localhost';
 
 GRANT SELECT
 ON Route_map

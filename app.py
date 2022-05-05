@@ -532,20 +532,20 @@ def ticket_cancelled():
             if i[5]==end_station_id:
                 last_route_id = i[0]
 
-        for i in all_routes:
-            if (i[0]<last_route_id) and (i[0]>=first_route_id):
-                if coach_name=="Genral":
-                    chstr = f"UPDATE route SET Seats_General = Seats_General + 1 WHERE Route_id={i[0]};"
-                    mycursor.execute(chstr);
-                    mydb.commit()
-                elif coach_name=="AC_1":
-                    chstr = f"UPDATE route SET Seats_AC1 = Seats_AC1 + 1 WHERE Route_id={i[0]};"
-                    mycursor.execute(chstr);
-                    mydb.commit()
-                else:
-                    chstr = f"UPDATE route SET Seats_AC2 = Seats_AC2 + 1 WHERE Route_id={i[0]};"
-                    mycursor.execute(chstr);
-                    mydb.commit()
+        # for i in all_routes:
+        #     if (i[0]<last_route_id) and (i[0]>=first_route_id):
+        #         if coach_name=="Genral":
+        #             chstr = f"UPDATE route SET Seats_General = Seats_General + 1 WHERE Route_id={i[0]};"
+        #             mycursor.execute(chstr);
+        #             mydb.commit()
+        #         elif coach_name=="AC_1":
+        #             chstr = f"UPDATE route SET Seats_AC1 = Seats_AC1 + 1 WHERE Route_id={i[0]};"
+        #             mycursor.execute(chstr);
+        #             mydb.commit()
+        #         else:
+        #             chstr = f"UPDATE route SET Seats_AC2 = Seats_AC2 + 1 WHERE Route_id={i[0]};"
+        #             mycursor.execute(chstr);
+        #             mydb.commit()
 
         main_delete = f"DELETE FROM passenger WHERE Ticket_id={ticket_id};"
         mycursor.execute(main_delete)

@@ -27,7 +27,7 @@ Download MySQL workbench, and create a new user with following credentials:
 
 Now create a Database by running the primary database create query file given at:
 [Database_Create](https://github.com/krishnamomar/Trainetic/blob/main/queries_sql/Primary/database_create.sql)
-Now simply run the file as 
+<br/>Now simply run the file as 
 
     python -m flask run
     

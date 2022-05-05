@@ -75,8 +75,8 @@ There are more mysql query files, meant for running the database related functio
 [All Queries](https://github.com/krishnamomar/Trainetic/tree/main/queries_sql)
 
 ## Project Report
-Project Repost can be accessed from the following Link.
-[Project Repost Complete](https://github.com/krishnamomar/Trainetic/blob/main/Report/Project%20report_DBMS.pdf)
+Project Report can be accessed from the following Link.
+[Project Report Complete](https://github.com/krishnamomar/Trainetic/blob/main/Report/Project%20report_DBMS.pdf)
 
 ***Thank You***
 <br/>

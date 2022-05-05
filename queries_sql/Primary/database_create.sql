@@ -63,7 +63,8 @@ create table Users(
     Mobile int,
     DOB date,
     First_name varchar(250),
-    Last_name varchar(250)
+    Last_name varchar(250),
+    passwords varchar(250)
 );
 
 
